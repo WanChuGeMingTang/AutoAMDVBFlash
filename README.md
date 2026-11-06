@@ -1,5 +1,7 @@
 # AutoAMDVBFlash
 
+**中文** | [English](README.en.md)
+
 > 本脚本由「玩出个名堂——更具温度的怀旧数码玩乐指南」制作
 
 一个跑在 Windows 下的 AMD 显卡 VBIOS 备份 / 强刷工具：双击备份，拖拽 `.rom` 强刷，自动识别你放在目录里的任意版本 `amdvbflash`。
@@ -102,18 +104,5 @@ MIT，见 [LICENSE](LICENSE)。
 
 ---
 
-## English
+English documentation: **[README.en.md](README.en.md)**
 
-A Windows batch tool for AMD Navi GPUs: back up the VBIOS with one double-click, and force-flash a `.rom` dropped onto the script.
-
-- Works with **any** `amdvbflash*.exe` in the folder (highest version wins), no hard-coded build
-- The folder can be renamed or moved anywhere (spaces, parentheses, non-ASCII paths tested)
-- When the flasher refuses the image (`SSID` / `PartNumber` mismatch) the script shows its exact message,
-  asks for `Y`, then retries with `-fv -fs -fp`
-- `Same IFWI image already flashed` → asks for `Y` and re-flashes with `-fa` (second SPIROM partition)
-- `AutoAMDVBFlash-EN.bat` is a pure-ASCII English build that runs on any Windows code page
-
-This repository contains **scripts only**. `amdvbflash*.exe` and the `driver\` package belong to AMD
-and are not redistributed here - supply your own copies.
-
-Flashing a GPU BIOS can brick the card. Use at your own risk; every forced flash requires an explicit `Y`.
