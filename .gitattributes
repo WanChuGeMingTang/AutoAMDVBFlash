@@ -1,0 +1,12 @@
+# 规则顺序很重要：后面的规则会覆盖前面的，所以 *.bat 必须放在 * 之后。
+# .bat 是 GBK 编码，必须原样保留字节和 CRLF，不能被 git 规范化，否则中文会乱。
+* text=auto eol=crlf
+
+*.md text eol=lf
+*.gitattributes text eol=lf
+*.gitignore text eol=lf
+
+*.bat -text -diff
+
+*.PNG binary
+*.png binary

@@ -1,0 +1,21 @@
+# --- user-supplied tooling (not redistributable here) ---
+*.exe
+*.dll
+*.sys
+*.cat
+*.inf
+*.msi
+driver/
+Software/
+
+# --- local state / output ---
+vbios_backups/
+flasher.txt
+*.log
+*.rom
+*.S02
+
+# --- os / editor noise ---
+Thumbs.db
+desktop.ini
+*.tmp
