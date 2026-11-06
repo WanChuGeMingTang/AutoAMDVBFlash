@@ -6,9 +6,10 @@
 
 A Windows batch tool for AMD Navi GPUs: double-click to back up the VBIOS, drop a `.rom` onto the script to force-flash it, and keep whatever `amdvbflash` build you have in the folder.
 
-![Main window: five flasher builds detected, 879_Moded_v1 picked, backup done](docs/main-window.png)
+![English build: a full run - backup taken, the flasher refuses the identical image, the script asks for Y](docs/en-main-window.png)
 
-*Main window: every `amdvbflash` build in the folder is listed, the highest one is picked automatically, and the VBIOS is saved into `vbios_backups\`*
+*A full run of `AutoAMDVBFlash-EN.bat`: it lists every `amdvbflash` build in the folder, picks one automatically,
+saves the VBIOS into `vbios_backups\`, then reports the flasher's own refusal message and asks what to do*
 
 ## What it solves
 
@@ -57,17 +58,18 @@ AutoAMDVBFlash\
 Double-click the script, or run it from an already elevated console. Backup files are named like
 `Navi23_<time>_bus03_pn<BIOS P/N>.S02.rom`, and `flasher_out.log` keeps the raw output of the flasher.
 
+![Backups in the vbios_backups folder](docs/en-backups.png)
+
+*Every run leaves a 1 MB VBIOS image plus `flasher_out.log` in `vbios_backups\`*
+
 ### Force flash
 
-Drop the `.rom` onto the script: it backs up first, then flashes. When the flasher refuses the image:
+Drop the `.rom` onto the script: it backs up first, then flashes. When the flasher refuses the image,
+the script repeats the flasher's own wording, explains the risk and waits for a confirmation:
 
-![Flasher refused the image](docs/flash-blocked.png)
+![Typing Y at the confirmation prompt](docs/en-confirm-y.png)
 
-![Type Y to confirm](docs/confirm-y.png)
-
-Only `Y` starts the forced flash; anything else aborts and the card is left untouched.
-
-![Aborted](docs/aborted.png)
+*Typing `Y` starts the forced flash; anything else aborts and the card is left untouched*
 
 ### Choosing a flasher version
 
