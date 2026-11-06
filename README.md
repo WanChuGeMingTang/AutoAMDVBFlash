@@ -4,7 +4,9 @@
 
 一个跑在 Windows 下的 AMD 显卡 VBIOS 备份 / 强刷工具：双击备份，拖拽 `.rom` 强刷，自动识别你放在目录里的任意版本 `amdvbflash`。
 
-![强刷界面](docs/强刷界面.PNG)
+![主界面：识别到 5 个刷写程序版本并自动选了 879_Moded_v1，备份完成](docs/AutoAMDVBFlash.PNG)
+
+*主界面：列出目录里所有 `amdvbflash` 版本、自动选中一个，完成备份并保存到 `vbios_backups\`*
 
 ## 它解决什么问题
 
@@ -41,6 +43,10 @@ AutoAMDVBFlash\
 3. 双击 `AutoAMDVBFlash.bat` → 备份 VBIOS 到 `vbios_backups\`
 4. 想刷固件：把 `.rom` 拖到 `AutoAMDVBFlash.bat` 图标上
 
+![把 .rom 拖到脚本图标上](docs/2.PNG)
+
+*备份就双击脚本；刷写就把 `.rom` 从任意文件夹拖到脚本图标上（出现「打开」提示时松手）*
+
 ## 使用说明
 
 ### 备份
@@ -52,6 +58,8 @@ AutoAMDVBFlash\
 
 把 `.rom` 拖到脚本上，脚本会先备份、再刷写。遇到校验拒绝时：
 
+![强刷界面](docs/强刷界面.PNG)
+
 ![输入 Y 确认](docs/输入Y.PNG)
 
 输入 `Y` 才会强制刷写；输入其它内容直接放弃，显卡不动。
@@ -62,6 +70,8 @@ AutoAMDVBFlash\
 
 双击 `选择刷写器.bat`（中文）或 `Choose-Flasher.bat`（英文），会列出三个目录里所有 `amdvbflash*.exe`，
 输入序号即写入 `flasher.txt` 固定下来；输入 `0` 恢复自动（版本号最大者胜出）。
+
+![选版本界面：左为英文 Choose-Flasher.bat，右为中文 选择刷写器.bat](docs/选择刷写器.PNG)
 
 ### 搜索顺序
 
