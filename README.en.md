@@ -6,7 +6,7 @@
 
 A Windows batch tool for AMD Navi GPUs: double-click to back up the VBIOS, drop a `.rom` onto the script to force-flash it, and keep whatever `amdvbflash` build you have in the folder.
 
-![Main window: five flasher builds detected, 879_Moded_v1 picked, backup done](docs/AutoAMDVBFlash.PNG)
+![Main window: five flasher builds detected, 879_Moded_v1 picked, backup done](docs/main-window.png)
 
 *Main window: every `amdvbflash` build in the folder is listed, the highest one is picked automatically, and the VBIOS is saved into `vbios_backups\`*
 
@@ -46,7 +46,7 @@ AutoAMDVBFlash\
 3. Double-click `AutoAMDVBFlash.bat` - the VBIOS is backed up into `vbios_backups\`
 4. To flash: drop a `.rom` onto the `AutoAMDVBFlash.bat` icon
 
-![Drop the .rom onto the script icon](docs/2.PNG)
+![Drop the .rom onto the script icon](docs/drag-drop.png)
 
 *Backup = double-click. Flash = drag a `.rom` from any folder onto the script icon and release on "Open".*
 
@@ -61,20 +61,20 @@ Double-click the script, or run it from an already elevated console. Backup file
 
 Drop the `.rom` onto the script: it backs up first, then flashes. When the flasher refuses the image:
 
-![Flasher refused the image](docs/强刷界面.PNG)
+![Flasher refused the image](docs/flash-blocked.png)
 
-![Type Y to confirm](docs/输入Y.PNG)
+![Type Y to confirm](docs/confirm-y.png)
 
 Only `Y` starts the forced flash; anything else aborts and the card is left untouched.
 
-![Aborted](docs/取消.PNG)
+![Aborted](docs/aborted.png)
 
 ### Choosing a flasher version
 
 Run `Choose-Flasher.bat` (English) or `选择刷写器.bat` (Chinese). Both list every `amdvbflash*.exe` found in the
 three folders; type the index to pin it into `flasher.txt`, or `0` to go back to automatic (highest version).
 
-![Version picker: English on the left, Chinese on the right](docs/选择刷写器.PNG)
+![Version picker listing every flasher found, with the automatic one marked](docs/version-picker-en.png)
 
 ### Search order
 
