@@ -416,15 +416,17 @@ REM ------------------------------------------------------------ forced flash pa
 REM  5.0.879 refuses an image when the IFWI version, the SSID or the PartNumber
 REM  does not match the card, and names the bypass flag in its error message:
 REM      -fv = IFWI version (downgrade)   -fp = PartNumber
-REM  The forced flash below therefore passes all three, after an explicit "Y".
+REM  The forced flash below therefore passes both, after an explicit "Y". The
+REM  SSID bypass (-fs) is deliberately NOT used: a cross-brand image is still
+REM  refused after the confirmation.
 :run_forced_flash
 ECHO.
 ECHO NOTE: The flasher refused this image - its own words:
 FINDSTR /I /C:"mismatch" /C:"is not same" /C:"Use -f" "%FLASH_LOG%"
 ECHO.
-ECHO A forced flash (-fv -fp) ignores the version, subsystem ID and
-ECHO PartNumber checks. If the image is not meant for this card, the GPU can be
-ECHO bricked and would then have to be recovered on a second PC.
+ECHO A forced flash (-fv -fp) bypasses only the version and PartNumber checks -
+ECHO an SSID mismatch is still refused. If the image is not meant for this card,
+ECHO the GPU can be bricked and would then have to be recovered on a second PC.
 CALL :force_confirm
 IF ERRORLEVEL 1 GOTO :ff_aborted
 ECHO.
