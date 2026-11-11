@@ -18,7 +18,7 @@ The original portable package hard-coded one flasher build and broke as soon as 
 - **No hard-coded flasher** - any `amdvbflash*.exe` in the folder works; the highest version in the file name wins
 - **The folder can be renamed or moved anywhere** - spaces, parentheses and non-ASCII paths are tested; the UAC relaunch no longer depends on a `.lnk`
 - **Drop the `.rom` from anywhere** - Chinese names, spaces and `&` all work
-- **Cross-brand / cross-model flashing** - when the flasher refuses the image (SSID / PartNumber mismatch) the script prints its exact message, asks for `Y`, then retries with `-fv -fs -fp`
+- **Cross-model and downgrade flashing** - when the flasher refuses the image over the PartNumber or the IFWI version, the script prints its exact message, asks for `Y`, then retries with `-fv -fp`. A cross-brand (SSID) mismatch is no longer bypassed: the confirmed retry is still refused
 - **Re-flash the same image** - on `Same IFWI image already flashed` it asks for `Y` and re-flashes with `-fa`, which is how the second SPIROM partition gets written
 - **Two builds** - `AutoAMDVBFlash.bat` (Chinese, GBK) and `AutoAMDVBFlash-EN.bat` (English, pure ASCII, runs on any code page)
 
@@ -87,7 +87,7 @@ three folders; type the index to pin it into `flasher.txt`, or `0` to go back to
 | Symptom | Meaning / action |
 |---|---|
 | `0xA00003FF PartNumber mismatch` | cross-model image; the script asks for `Y` and retries with `-fp` |
-| `0xA00003FE SSID mismatch` | cross-brand image; retried with `-fs` |
+| `0xA00003FE SSID mismatch` | cross-brand image; `-fs` is not passed, so the confirmed retry is still refused - use an image for this brand |
 | `0xA00003FC Same IFWI image already flashed` | the image equals the one on the card; `Y` re-flashes with `-fa` (second partition) |
 | `The AMD Special Tools Driver ... not installed` | `driver\` is missing or failed to load; the script loads it automatically, check the window |
 | `Please REBOOT ...` after flashing | normal. **Reboot and flash once more** - both SPIROM partitions need one pass each |

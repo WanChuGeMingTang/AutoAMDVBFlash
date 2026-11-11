@@ -17,7 +17,7 @@
 - **不再绑死刷写程序**：目录里任何 `amdvbflash*.exe` 都能用，按文件名版本号自动挑最大的
 - **目录可以随便改名/移动**：含空格、括号、中文路径都测过；提权不再依赖 `.lnk`
 - **拖拽路径不受限**：`.rom` 从任意文件夹拖进来都行，中文名、空格、`&` 都没问题
-- **跨品牌/跨型号可强刷**：刷写程序拒绝时（SSID / PartNumber 不匹配），脚本会列出它的原话，要求输入 `Y` 后用 `-fv -fs -fp` 强制刷写
+- **跨型号/降级可强刷**：刷写程序以 PartNumber 或版本不符拒绝时，脚本会列出它的原话，要求输入 `Y` 后用 `-fv -fp` 强制刷写；跨品牌（SSID 不符）不再绕过，确认后仍会被拒绝
 - **同镜像可重刷**：`Same IFWI image already flashed` 时询问是否用 `-fa` 重刷，用来写第二个 SPIROM 分区
 - **中英双版本**：`AutoAMDVBFlash.bat`（中文，GBK）与 `AutoAMDVBFlash-EN.bat`（英文，纯 ASCII，任意代码页可用）
 
@@ -84,7 +84,7 @@ AutoAMDVBFlash\
 | 现象 | 含义 / 处理 |
 |---|---|
 | `0xA00003FF PartNumber mismatch` | 跨型号混刷，脚本会要求 `Y` 后用 `-fp` 强刷 |
-| `0xA00003FE SSID mismatch` | 跨品牌混刷，脚本用 `-fs` |
+| `0xA00003FE SSID mismatch` | 跨品牌混刷；脚本不传 `-fs`，确认后仍会被拒绝，只能换成本品牌对应的 ROM |
 | `0xA00003FC Same IFWI image already flashed` | 镜像与卡上一致；`Y` 则用 `-fa` 重刷（写第二分区） |
 | `The AMD Special Tools Driver ... not installed` | `driver\` 缺失或加载失败，脚本会自动加载，失败时看窗口提示 |
 | 刷完提示 `Please REBOOT` | 正常。**重启后再刷一遍**，两个 SPIROM 分区各刷一次才算完成 |
