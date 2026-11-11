@@ -414,21 +414,21 @@ EXIT /B 0
 REM ------------------------------------------------------------ forced flash path
 REM  5.0.879 refuses an image when the IFWI version, the SSID or the PartNumber
 REM  does not match the card, and names the bypass flag in its error message:
-REM      -fv = IFWI version (downgrade)   -fs = SSID   -fp = PartNumber
+REM      -fv = IFWI version (downgrade)   -fp = PartNumber
 REM  The forced flash below therefore passes all three, after an explicit "Y".
 :run_forced_flash
 ECHO.
 ECHO NOTE: The flasher refused this image - its own words:
 FINDSTR /I /C:"mismatch" /C:"is not same" /C:"Use -f" "%FLASH_LOG%"
 ECHO.
-ECHO A forced flash (-fv -fs -fp) ignores the version, subsystem ID and
+ECHO A forced flash (-fv -fp) ignores the version, subsystem ID and
 ECHO PartNumber checks. If the image is not meant for this card, the GPU can be
 ECHO bricked and would then have to be recovered on a second PC.
 CALL :force_confirm
 IF ERRORLEVEL 1 GOTO :ff_aborted
 ECHO.
-ECHO Forcing the flash with -fv -fs -fp ...
-"%FLASHER%" --accept-EULA -fv -fs -fp --debug-log-status=false -p 0 "%AMD_VBIOS_TO_FLASH%" > "%FLASH_LOG%" 2>&1
+ECHO Forcing the flash with -fv -fp ...
+"%FLASHER%" --accept-EULA -fv -fp --debug-log-status=false -p 0 "%AMD_VBIOS_TO_FLASH%" > "%FLASH_LOG%" 2>&1
 TYPE "%FLASH_LOG%"
 FINDSTR /I /C:"Please REBOOT the System" "%FLASH_LOG%" >NUL
 IF NOT ERRORLEVEL 1 GOTO :rf_reboot
