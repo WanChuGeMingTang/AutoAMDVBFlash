@@ -40,6 +40,20 @@ AutoAMDVBFlash\
 > package, from a portable package you already have, or from your own backup, and put them into
 > `Software\` and `driver\`.
 
+## Ready-to-run package (optional)
+
+For a package that already contains `amdvbflash` and the AmdTools driver, use the author's card page:
+
+**<https://cardlink.cc/wanchugemingtang>**
+
+If you only want the scripts, download the scripts-only archive from
+[Releases](https://github.com/WanChuGeMingTang/AutoAMDVBFlash/releases) and drop your own
+`amdvbflash*.exe` into `Software\` and the driver into `driver\`.
+
+> The `amdvbflash*.exe` builds, the AmdTools driver and AMD's documents inside that package remain AMD's
+> property (some flasher builds are third-party modifications, owned by their authors) and are **not
+> covered by this project's MIT license**. Use them at your own risk.
+
 ## Quick start
 
 1. Put your `amdvbflash*.exe` into `Software\` (any 5.x build, several are fine)

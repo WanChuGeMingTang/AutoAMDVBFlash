@@ -38,6 +38,18 @@ AutoAMDVBFlash\
 > 均不便随仓库分发，请自备：从 AMD 官方包、作者便携包或你自己的旧目录里取，
 > 放到 `Software\` 与 `driver\` 即可。
 
+## 完整包（可选）
+
+想要「解压即用」的完整包（`amdvbflash` 与 AmdTools 驱动都已放好），到作者名片页获取：
+
+**<https://cardlink.cc/wanchugemingtang>**
+
+只想要脚本的话，直接在 [Releases](https://github.com/WanChuGeMingTang/AutoAMDVBFlash/releases) 下载脚本包，
+再把自己的 `amdvbflash*.exe` 放进 `Software\`、驱动放进 `driver\`。
+
+> 完整包内的 `amdvbflash*.exe`、AmdTools 驱动和 AMD 文档版权归 AMD 所有（部分刷写程序是第三方修改版，
+> 版权归其原作者），**不在本项目的 MIT 许可范围内**。是否使用、如何使用，请自行判断并承担风险。
+
 ## 快速开始
 
 1. 把 `amdvbflash*.exe` 放进 `Software\`（任意 5.x 版本，多个也行）
